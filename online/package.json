@@ -1,1 +1,1 @@
-{"name":"print-lab-world","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node --test tests/*.test.mjs"}}
+{"name":"print-lab-world","private":true,"type":"module","scripts":{"build":"node scripts/build.mjs","test":"node --test tests/*.test.mjs"},"dependencies":{"esbuild":"0.28.2","three":"0.186.1"}}

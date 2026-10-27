@@ -15,7 +15,7 @@ function publicPlayer(p){return {id:p.id.slice(0,8),name:p.name,country:p.countr
 function snapshot(p,s,now){return {player:publicPlayer(p),state:s,revision:p.revision,now,models:MODELS,stages:STAGES,milestones:MILESTONES};}
 async function persist(db,p,s,now,fields={}){const r=await db.prepare('UPDATE players SET state=?, revision=revision+1, score=?, active_ms=?, updated_at=?, name=?, name_key=?, country=?, language=? WHERE id=? AND revision=?').bind(JSON.stringify(s),Math.floor(s.earned),Math.floor(s.active),now,fields.name||p.name,fields.key||p.name_key,fields.country||p.country,fields.language||p.language,p.id,p.revision).run();return r.meta.changes===1;}
 export default {async fetch(req,env){const url=new URL(req.url),path=url.pathname;try{
- if(!path.startsWith('/api/')){const asset=ASSETS[path==='/'?'/index.html':path];if(!asset)return new Response('404',{status:404,headers:security});return new Response(asset.body,{headers:{...security,'Content-Type':asset.type,'Cache-Control':path.endsWith('.html')?'no-cache':'public, max-age=300'}});}
+ if(!path.startsWith('/api/')){const asset=ASSETS[path==='/'?'/index.html':path];if(!asset)return new Response('404',{status:404,headers:security});return new Response(asset.encoding==='base64'?Uint8Array.from(atob(asset.body),c=>c.charCodeAt(0)):asset.body,{headers:{...security,'Content-Type':asset.type,'Cache-Control':path.endsWith('.html')?'no-cache':'public, max-age=300'}});}
  if(!env.DB)return json({error:'unavailable'},503);
  if(req.method==='POST'&&(req.headers.get('Origin')!==url.origin||!req.headers.get('Content-Type')?.startsWith('application/json')))return json({error:'origin'},403);
  if(req.method==='POST'&&Number(req.headers.get('Content-Length')||0)>4096)return json({error:'invalid'},413);

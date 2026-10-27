@@ -1,0 +1,13 @@
+{
+  "format": "glTF 2.0 binary",
+  "author": "PRINT LAB",
+  "models": [
+    "room.glb",
+    "printer.glb",
+    "prints.glb",
+    "workshop.glb"
+  ],
+  "printerSlots": 16,
+  "printableModels": 8,
+  "source": "models/workshop-model.js"
+}

@@ -1,6 +1,12 @@
 import fs from 'node:fs';
-const files={'/depth.css':['web/depth.css','text/css; charset=utf-8'],'/visuals.js':['web/visuals.js','text/javascript; charset=utf-8'],'/index.html':['web/index.html','text/html; charset=utf-8'],'/style.css':['web/style.css','text/css; charset=utf-8'],'/client.js':['web/client.js','text/javascript; charset=utf-8'],'/i18n.js':['web/i18n.js','text/javascript; charset=utf-8']};
+import {build} from 'esbuild';
+await import('./build-models.mjs');
+const files={'/room-text.js':['web/room-text.js','text/javascript; charset=utf-8'],'/room.css':['web/room.css','text/css; charset=utf-8'],'/depth.css':['web/depth.css','text/css; charset=utf-8'],'/visuals.js':['web/visuals.js','text/javascript; charset=utf-8'],'/index.html':['web/index.html','text/html; charset=utf-8'],'/style.css':['web/style.css','text/css; charset=utf-8'],'/client.js':['web/client.js','text/javascript; charset=utf-8'],'/i18n.js':['web/i18n.js','text/javascript; charset=utf-8']};
 const assets=Object.fromEntries(Object.entries(files).map(([url,[file,type]])=>[url,{body:fs.readFileSync(file,'utf8'),type}]));
+const bundle=await build({entryPoints:['web/room.js'],bundle:true,format:'esm',minify:true,write:false,target:'es2022',legalComments:'inline'});assets['/room.js']={body:bundle.outputFiles[0].text,type:'text/javascript; charset=utf-8'};
+for(const name of ['room.glb','printer.glb','prints.glb','workshop.glb'])assets['/assets/'+name]={body:fs.readFileSync('web/assets/'+name).toString('base64'),type:'model/gltf-binary',encoding:'base64'};
+assets['/assets/model-manifest.json']={body:fs.readFileSync('web/assets/model-manifest.json','utf8'),type:'application/json'};
+assets['/licenses/three.txt']={body:fs.readFileSync('node_modules/three/LICENSE','utf8'),type:'text/plain; charset=utf-8'};
 const engine=fs.readFileSync('worker/engine.js','utf8').replaceAll('export ','');
 const worker=fs.readFileSync('worker/index.js','utf8').replace(/^import .*;\r?\n/gm,'');
 fs.mkdirSync('dist/server',{recursive:true});fs.mkdirSync('dist/.openai/drizzle/meta',{recursive:true});
