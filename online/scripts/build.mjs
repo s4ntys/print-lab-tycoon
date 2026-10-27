@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-const files={'/index.html':['web/index.html','text/html; charset=utf-8'],'/style.css':['web/style.css','text/css; charset=utf-8'],'/client.js':['web/client.js','text/javascript; charset=utf-8'],'/i18n.js':['web/i18n.js','text/javascript; charset=utf-8']};
+const files={'/depth.css':['web/depth.css','text/css; charset=utf-8'],'/visuals.js':['web/visuals.js','text/javascript; charset=utf-8'],'/index.html':['web/index.html','text/html; charset=utf-8'],'/style.css':['web/style.css','text/css; charset=utf-8'],'/client.js':['web/client.js','text/javascript; charset=utf-8'],'/i18n.js':['web/i18n.js','text/javascript; charset=utf-8']};
 const assets=Object.fromEntries(Object.entries(files).map(([url,[file,type]])=>[url,{body:fs.readFileSync(file,'utf8'),type}]));
 const engine=fs.readFileSync('worker/engine.js','utf8').replaceAll('export ','');
 const worker=fs.readFileSync('worker/index.js','utf8').replace(/^import .*;\r?\n/gm,'');

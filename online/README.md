@@ -25,3 +25,7 @@ The online game runs on Sites with a Worker and D1. GitHub Pages is a static ent
 `node scripts/build.mjs` builds a dependency-free Worker, embedded frontend and migration metadata. `node --test tests/world.test.mjs` runs engine, translations and real SQLite API tests. `node scripts/preview.mjs` starts http://127.0.0.1:4180 using an ignored local SQLite database. Preview cookies intentionally lack Secure on HTTP; production cookies require HTTPS. Do not expose the local preview server.
 
 Production schema migrations are under `drizzle/`. Do not modify applied migrations. Publish the exact pushed source commit with the Sites packaging helper. `.openai/hosting.json` stores the Site ID and logical DB binding, never secrets.
+
+## Dimensional visual update (v5)
+
+CSS 3D cuboids create eight decorative printable objects and eight miniature stage buildings. Printer frames have rear, top and side surfaces, a recessed print bed and a filament reel. The workshop has perspective flooring, rim lighting and contact shadows. Desktop pointer tilt is limited to decorative cards, pauses when controls receive focus and is disabled on coarse pointers and reduced-motion devices. The same layout and action targets remain available on mobile. No gameplay state, scoring, auth or database schema changes are introduced. The geometry and styles are in `web/visuals.js` and `web/depth.css`.
