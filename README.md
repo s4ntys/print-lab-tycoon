@@ -31,3 +31,9 @@ Zákazníci prichádzajú s časovanými ponukami na už odomknuté modely. Prij
 Materiály PLA (vyvážený), Draft (65 % času, 75 % ceny) a Silk (140 % času, 180 % ceny; odomkne sa v štúdiu) vytvárajú voľbu medzi rýchlosťou a cenou. Cena sa zaokrúhľuje na celé eurá za kus a uchováva pri zmiešanom sklade; zmena materiálu nemení cenu už vyrobených kusov.
 
 Za 600 € a dve reputácie sa garáž zmení na štúdio. Za 2200 € a šesť reputácií sa štúdio zmení na neónovú manufaktúru s 20 % vyššou rýchlosťou. Mení sa aj vzhľad scény. Staré uloženia sa doplnia bez straty pôvodného skladu alebo peňazí.
+
+## Online World (v4)
+
+Online mode: https://print-lab-world.primemink129.chatgpt.site
+
+GitHub Pages now provides a multilingual entry point. The original cookie save remains playable at `classic.html` on the same origin. Ranked mode starts fresh for everyone and stores authoritative state in a Sites Worker / D1 backend. It uses Secure HttpOnly session cookies, unique locked names and a one-time recovery code. It never imports local scores. See `online/README.md` for implementation, security boundaries, translations and tests. The online source is mirrored under `online/`; deployment is managed through Sites.

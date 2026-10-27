@@ -1,0 +1,5 @@
+import {DICT,LANG_NAMES} from './portal-i18n.js';
+let lang=DICT[navigator.language.slice(0,2)]?navigator.language.slice(0,2):'en';
+try{if(DICT[localStorage.getItem('pl_language')])lang=localStorage.getItem('pl_language');}catch{}
+function render(){const d=DICT[lang];document.documentElement.lang=lang;document.getElementById('title').textContent=d.title;document.getElementById('subtitle').textContent=d.subtitle;document.getElementById('online').textContent=d.continue+' →';document.getElementById('security').textContent='🔒 '+d.serverInfo;document.getElementById('classic').textContent=d.classic;document.getElementById('classicInfo').textContent=d.classicInfo;document.getElementById('language').innerHTML=Object.entries(LANG_NAMES).map(([k,v])=>`<option value="${k}" ${k===lang?'selected':''}>${v}</option>`).join('');document.getElementById('language').setAttribute('aria-label',d.language);}
+document.getElementById('language').onchange=e=>{lang=e.target.value;render();try{localStorage.setItem('pl_language',lang);}catch{}};render();
