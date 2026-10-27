@@ -1,3 +1,13 @@
+# PRINT LAB World — aktuálna 3D verzia (v6)
+
+[GitHub Pages](https://s4ntys.github.io/print-lab-tycoon/) · [Hrať aktuálnu 3D hru](https://print-lab-world.primemink129.chatgpt.site/?v=6)
+
+Kompletné zdrojové súbory aktuálnej online hry sú v priečinku **online/**: WebGL miestnosť, GLB modely, herná logika servera, bezpečné profily, online rebríček, preklady aj testy. Zhodujú sa s nasadenou verziou zo zdrojového commitu `df6f5709bca6a550ee314e801cf4c99d540f9c9b`.
+
+GitHub Pages poskytuje vstup do online hry a pôvodný lokálny režim. Online herný server a databáza bežia na Sites; GitHub Pages samotný serverovú časť nespúšťa. Podrobnosti zostavenia a nasadenia sú v [online/README.md](online/README.md).
+
+---
+
 # PRINT LAB — 3D Tycoon
 
 Bezplatný slovenský tycoon inšpirovaný budovaním dielne s 3D tlačiarňami. Vlastná grafika vytvorená v CSS, bez herných assetov z Robloxu.
