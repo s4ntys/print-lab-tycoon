@@ -23,3 +23,11 @@ V nastaveniach repozitára vyber Pages → Deploy from a branch → main → / (
 Pôvodné cookies a zálohy zostávajú kompatibilné. Odmeny sa ukladajú spolu s postupom. Rovnako ako celú lokálnu hru je možné čas a uloženie upraviť; nejde o zabezpečenú online ekonomiku.
 
 Overenie hernej logiky: `node tests/game.test.cjs`.
+
+## Živá ekonomika (v3)
+
+Zákazníci prichádzajú s časovanými ponukami na už odomknuté modely. Prijatie spustí trojminútovú lehotu; odovzdanie spotrebuje presný počet kusov zo skladu, vyplatí odmenu a pridá reputáciu. Výrobky zostanú pri nesplnení hráčovi. Prihlásenie po lehote zákazku neobnovuje. Tlačidlo prípravy nastaví požadovaný model a spustí voľné tlačiarne. Spustenie všetkých voľných tlačiarní je dostupné samostatne.
+
+Materiály PLA (vyvážený), Draft (65 % času, 75 % ceny) a Silk (140 % času, 180 % ceny; odomkne sa v štúdiu) vytvárajú voľbu medzi rýchlosťou a cenou. Cena sa zaokrúhľuje na celé eurá za kus a uchováva pri zmiešanom sklade; zmena materiálu nemení cenu už vyrobených kusov.
+
+Za 600 € a dve reputácie sa garáž zmení na štúdio. Za 2200 € a šesť reputácií sa štúdio zmení na neónovú manufaktúru s 20 % vyššou rýchlosťou. Mení sa aj vzhľad scény. Staré uloženia sa doplnia bez straty pôvodného skladu alebo peňazí.
