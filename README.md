@@ -15,3 +15,11 @@ Statické súbory `index.html`, `style.css`, `game.js`. Spusti ľubovoľný lok�
 ## GitHub Pages
 
 V nastaveniach repozitára vyber Pages → Deploy from a branch → main → / (root). Nie je potrebný build ani server. Celý web je verejný; neukladaj do repozitára súkromné údaje.
+
+## Hravá dielňa (v2)
+
+Živá animovaná dielňa s robotom, klikateľnými tlačiarňami a dopravníkom. Turbo ťuk skracuje rozbehnuté tlače o 0,8 sekundy, má ochranu proti priveľmi rýchlym klikom a pri prehriatí sa na 6,5 sekundy zablokuje. Bežná tlač pokračuje. Päť míľnikov prináša jednorazové odmeny, denný darček sa dá vyzdvihnúť raz za miestny kalendárny deň. Náhodné udalosti prinášajú balíček alebo 50 % bonus za predaj. Voliteľné zvuky sa zapínajú tlačidlom v dielni. Rešpektuje znížený pohyb v nastaveniach zariadenia.
+
+Pôvodné cookies a zálohy zostávajú kompatibilné. Odmeny sa ukladajú spolu s postupom. Rovnako ako celú lokálnu hru je možné čas a uloženie upraviť; nejde o zabezpečenú online ekonomiku.
+
+Overenie hernej logiky: `node tests/game.test.cjs`.
